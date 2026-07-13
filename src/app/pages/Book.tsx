@@ -28,7 +28,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   console.log("Submitting form:", formData);
 
   try {
-    const res = await fetch("/api/book", { // ✅ FIXED HERE
+    const res = await fetch("/api/book", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,9 +36,10 @@ const handleSubmit = async (e: React.FormEvent) => {
       body: JSON.stringify(formData),
     });
 
-    const data = await res.json(); // ✅ read response
+    console.log("STATUS:", res.status); // 👈 ADD THIS
 
-    console.log("Response:", data);
+    const data = await res.json();
+    console.log("RESPONSE:", data);
 
     if (res.ok) {
       setIsSubmitted(true);
