@@ -28,20 +28,22 @@ const handleSubmit = async (e: React.FormEvent) => {
   console.log("Submitting form:", formData);
 
   try {
-    const res = await fetch("http://127.0.0.1:5000/send-email", {
+    const res = await fetch("/api/book", { // ✅ FIXED HERE
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData), // ✅ FIXED
+      body: JSON.stringify(formData),
     });
 
-    console.log("Response:", res);
+    const data = await res.json(); // ✅ read response
+
+    console.log("Response:", data);
 
     if (res.ok) {
       setIsSubmitted(true);
     } else {
-      alert("❌ Failed to send booking");
+      alert("❌ Failed: " + data.message);
     }
   } catch (error) {
     console.error("ERROR:", error);
