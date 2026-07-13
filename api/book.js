@@ -1,48 +1,39 @@
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export default async function handler(req, res) {
-  // Allow only POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
   try {
-    // Get form data from frontend
-    const {
-      name,
-      email,
-      phone,
-      projectType,
-      address,
-      message,
-    } = req.body;
+    const { name, email, phone, projectType, address, message } = req.body;
 
-    // Basic validation
-    if (!name || !email || !phone) {
-      return res.status(400).json({
-        message: "Missing required fields",
-      });
-    }
-
-    // Log data (you’ll see this in Vercel logs)
-    console.log("📥 New Booking:");
-    console.log({
-      name,
-      email,
-      phone,
-      projectType,
-      address,
-      message,
+    // ✅ Send email
+    await resend.emails.send({
+      from: "onboarding@resend.dev", // default test sender
+      to: email, // sends to user
+      subject: "Consultation Request Received",
+      html: `
+        <h2>Thank you, ${name}!</h2>
+        <p>Your booking has been received.</p>
+        <p><strong>Project Type:</strong> ${projectType}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Address:</strong> ${address}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
     });
 
-    // ✅ SUCCESS RESPONSE
     return res.status(200).json({
-      message: "Booking successful",
+      message: "Request Received!",
     });
 
   } catch (error) {
-    console.error("❌ ERROR:", error);
+    console.error("EMAIL ERROR:", error);
 
     return res.status(500).json({
-      message: "Server error",
+      message: "Failed to send email",
     });
   }
 }
