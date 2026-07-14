@@ -4,9 +4,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   try {
-    const { name, email, phone } = req.body;
+    const { name, email, phone , address, propertyType, message} = req.body;
 
-    console.log("Incoming data:", name, email, phone);
+    console.log("Incoming data:", name, email, phone, address, propertyType, message);
 
     const response = await resend.emails.send({
       from: 'onboarding@resend.dev',
