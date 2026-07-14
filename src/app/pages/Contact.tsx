@@ -24,7 +24,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1">Visit Our Showroom</h4>
-                  <p className="text-neutral-400">Vasquez Home Furnishing<br />Cainta, Rizal, Philippines</p>
+                  <p className="text-neutral-400">Vasquez Home Furnishing<br />C. Lawis Street, Antipolo, 1870 Rizal, Philippines</p>
                 </div>
               </div>
               
@@ -34,7 +34,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1">Call Us</h4>
-                  <p className="text-neutral-400">(555) 123-4567<br />(555) 987-6543</p>
+                  <p className="text-neutral-400">(555) 123-4567</p>
                 </div>
               </div>
 
@@ -44,7 +44,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1">Email Us</h4>
-                  <p className="text-neutral-400">hello@vasquezhome.com<br />quotes@vasquezhome.com</p>
+                  <p className="text-neutral-400">Jpvasquezhomefurnishing@gmail.com</p>
                 </div>
               </div>
 
