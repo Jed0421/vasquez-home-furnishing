@@ -14,12 +14,12 @@ export default async function handler(req, res) {
       subject: 'New Consultation Booking',
       html: `
         <h2>New Booking</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Address:</b> ${address}</p>
-        <p><b>Property Type:</b> ${propertyType}</p>
-        <p><b>Message:</b> ${message}</p>
+        <p><h1><b>Name:</b></h1> ${name}</p>
+        <p><h1><b>Email:</b></h1> ${email}</p>
+        <p><h1><b>Phone:</b></h1> ${phone}</p>
+        <p><h1><b>Address:</b></h1> ${address}</p>
+        <p><h1><b>Property Type:</b></h1> ${propertyType}</p>
+        <p><h1><b>Message:</b></h1> ${message}</p>
       `,
     });
 
