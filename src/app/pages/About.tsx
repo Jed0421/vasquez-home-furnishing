@@ -1,6 +1,6 @@
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Hammer, ShieldCheck, HeartHandshake, CalendarDays, Wrench } from "lucide-react";
-import kitchenDrawers from "@/imports/Kitchen_Drawers.jpg";
+import ourStory from "@/imports/OurStory.jpg";
 import cabinet from "@/imports/Cabinet.jpg";
 import tvBackground from "@/imports/TV_Background.jpg";
 
@@ -17,7 +17,7 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <ImageWithFallback
-              src={kitchenDrawers}
+              src={ourStory}
               alt="Vasquez custom kitchen cabinetry"
               className="w-full rounded-sm shadow-xl aspect-square object-cover"
             />
