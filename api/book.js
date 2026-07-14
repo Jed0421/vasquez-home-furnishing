@@ -1,39 +1,30 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
   try {
-    const { name, email, phone, projectType, address, message } = req.body;
+    const { name, email, phone } = req.body;
 
-    // ✅ Send email
-    await resend.emails.send({
-      from: "onboarding@resend.dev", // default test sender
-      to: email, // sends to user
-      subject: "Consultation Request Received",
+    console.log("Incoming data:", name, email, phone);
+
+    const response = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'jedgalicia0421@gmail.com',
+      subject: 'New Consultation Booking',
       html: `
-        <h2>Thank you, ${name}!</h2>
-        <p>Your booking has been received.</p>
-        <p><strong>Project Type:</strong> ${projectType}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Address:</strong> ${address}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <h2>New Booking</h2>
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone}</p>
       `,
     });
 
-    return res.status(200).json({
-      message: "Request Received!",
-    });
+    console.log("Email response:", response);
 
+    res.status(200).json({ success: true });
   } catch (error) {
     console.error("EMAIL ERROR:", error);
-
-    return res.status(500).json({
-      message: "Failed to send email",
-    });
+    res.status(500).json({ error: error.message });
   }
 }
