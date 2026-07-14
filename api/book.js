@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     console.log("Incoming data:", name, email, phone, address, propertyType, message);
 
     const response = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'New-Client@resend.dev',
       to: 'jedidiah0421@gmail.com',
       subject: 'New Consultation Booking',
       html: `

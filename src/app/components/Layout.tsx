@@ -138,9 +138,9 @@ export function Layout() {
           <div>
             <h4 className="text-white font-medium mb-6">Contact Info</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li>123 Craftsmanship Way</li>
-              <li>Design District, CA 90210</li>
-              <li className="mt-4">hello@vasquezhome.com</li>
+              <li>C. Lawis Street, Antipolo,</li>
+              <li>1870 Rizal, Philippines</li>
+              <li className="mt-4">Jpvasquezmodular@gmail.com</li> 
               <li>(555) 123-4567</li>
             </ul>
           </div>
